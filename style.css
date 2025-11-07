@@ -1,0 +1,429 @@
+/* --- Variabel Global untuk Kedua Mode --- */
+:root {
+    /* Warna Dasar */
+    --primary-accent: #00FFFF; /* Cyan/Electric Blue untuk Dark Mode */
+    --secondary-accent: #00A9A9;
+    --font-stack: 'Inter', sans-serif;
+    --radius: 6px;
+
+    /* Warna Default: DARK MODE */
+    --bg-main: #121212;
+    --bg-section: #1a1a1a;
+    --bg-card: #1E1E1E;
+    --text-main: #E0E0E0;
+    --text-secondary: #90CAF9;
+    --shadow-color: rgba(0, 255, 255, 0.15); /* Bayangan neon ringan */
+    --shadow-heavy: rgba(0, 255, 255, 0.3);
+    --border-color: #333;
+}
+
+/* --- LIGHT MODE SETTINGS --- */
+html.light-mode {
+    /* Override variabel untuk Light Mode */
+    --primary-accent: #007bff; /* Biru Profesional */
+    --secondary-accent: #0056b3;
+    --bg-main: #FFFFFF;
+    --bg-section: #f8f9fa;
+    --bg-card: #FFFFFF;
+    --text-main: #212529;
+    --text-secondary: #495057;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-heavy: rgba(0, 0, 0, 0.2);
+    --border-color: #dee2e6;
+}
+
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Layout Umum --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-accent);
+    text-shadow: 0 0 10px var(--shadow-color);
+}
+
+.bg-card-section {
+    background-color: var(--bg-section);
+}
+
+/* --- Tombol Aksi Utama --- */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--shadow-heavy);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: var(--primary-accent);
+    color: var(--bg-main);
+    border: 2px solid var(--primary-accent);
+}
+
+/* Modifikasi untuk Light Mode Primary Button */
+html.light-mode .btn-primary {
+    color: white; /* Teks Putih */
+    background-color: var(--primary-accent);
+}
+
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-accent);
+    color: var(--primary-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-accent);
+    border-color: var(--secondary-accent);
+    box-shadow: 0 0 20px var(--shadow-heavy);
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-accent);
+    color: var(--bg-main);
+    transform: translateY(-3px);
+}
+
+/* --- Header & Navigasi --- */
+header {
+    background: var(--bg-main);
+    box-shadow: 0 1px 10px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+html.light-mode header {
+     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+/* Container baru untuk menampung Nav, Toggle, dan Hamburger */
+.header-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antar Nav, Toggle, dan Hamburger (jika terlihat) */
+}
+
+#nav-menu a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+#nav-menu a:hover {
+    color: var(--primary-accent);
+}
+
+/* Tombol Mode Toggle */
+.mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    cursor: pointer;
+    color: var(--primary-accent);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    /* Pastikan toggle selalu terlihat di desktop */
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--primary-accent);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: radial-gradient(circle at top left, var(--bg-section), var(--bg-main));
+    border-bottom: 2px solid var(--secondary-accent);
+    color: var(--text-main);
+    text-align: center;
+    padding: 140px 0;
+}
+
+html.light-mode .hero {
+     background: linear-gradient(135deg, #e0f0ff, #c3e0ff); /* Light blue gradient */
+}
+
+
+.hero h1 {
+    font-size: 4em;
+    margin: 10px 0 20px;
+    font-weight: 700;
+    color: var(--primary-accent);
+    text-shadow: 0 0 20px var(--shadow-heavy);
+}
+
+.hero h2 {
+    font-size: 2.4em;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.hero .tagline {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-secondary);
+}
+
+/* --- About Section --- */
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--primary-accent);
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.skill-item {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s;
+}
+
+.skill-item:hover {
+    border-color: var(--primary-accent);
+    transform: translateY(-5px);
+}
+
+.skill-item h3 {
+    color: var(--primary-accent);
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.skill-item p {
+    color: var(--text-secondary);
+}
+
+/* --- Portfolio Section --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    border-left: 4px solid var(--secondary-accent);
+    transition: transform 0.3s ease, border-left 0.3s ease, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-left: 4px solid var(--primary-accent);
+}
+
+.project-card h3 {
+    color: var(--primary-accent);
+    margin-bottom: 8px;
+}
+
+.project-card .tech-stack {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    display: block;
+}
+
+.project-card p {
+    flex-grow: 1;
+    margin-bottom: 25px;
+    color: var(--text-main);
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 600;
+    align-self: flex-start;
+    border-bottom: 1px dashed var(--primary-accent);
+    padding-bottom: 2px;
+}
+
+.project-link:hover {
+    border-bottom: 1px solid transparent;
+    color: var(--secondary-accent);
+}
+
+/* --- Contact Section --- */
+.contact-details {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2em;
+}
+
+.contact-details p {
+    margin: 15px 0;
+    color: var(--text-secondary);
+}
+
+.contact-details a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.contact-details a:hover {
+    color: var(--secondary-accent);
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color);
+}
+
+html.light-mode footer {
+    background: #e9ecef;
+}
+
+/* --- Media Queries (Responsif) --- */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 3.5em; }
+    .hero h2 { font-size: 2em; }
+    .about-flex { flex-direction: column; text-align: center; }
+    .about-image { order: -1; margin-bottom: 30px; }
+    .skills-grid, .portfolio-grid { gap: 30px; }
+    .section { padding: 70px 0; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    /* Sembunyikan navigasi desktop dan Toggle Mode saat hamburger diklik */
+    .header-right-actions {
+        /* Perlu diset ulang untuk mobile: menampung Toggle dan Hamburger */
+        gap: 10px;
+    }
+
+    #nav-menu {
+        /* Aturan untuk menu dropdown */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        background: var(--bg-main);
+        width: 100%;
+        box-shadow: 0 4px 8px var(--shadow-color);
+        padding: 10px 0;
+        z-index: 999;
+        border-top: 1px solid var(--border-color);
+    }
+
+    #nav-menu.active { display: flex; }
+
+    #nav-menu a {
+        margin: 15px 20px;
+        text-align: center;
+        width: auto;
+    }
+
+    .btn-primary {
+        margin: 10px auto;
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .hero h1 { font-size: 2.8em; }
+    .hero h2 { font-size: 1.5em; }
+    .section h2 { font-size: 2em; }
+}
